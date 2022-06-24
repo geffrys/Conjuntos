@@ -1,9 +1,9 @@
 public class Nodo {
     public Nodo(){
         this.next = null;
-        this.dato = 0;
+        this.dato = null;
     }
-    private int dato;
+    private String dato;
     private Nodo next;
 
     public void setDato(int dato) {
