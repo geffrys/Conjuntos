@@ -128,4 +128,29 @@ public class ConjuntoArreglo {
         }
         return diferencia;
     }
+
+    public boolean igualdad(ConjuntoArreglo B){
+        boolean flag=false;
+        for (int i = 0; i < this.getCantidadElementos(); i++) {
+            if(B.pertenece(this.getDato(i))){
+                flag=true;
+            }else{
+                return false;
+            }
+        }
+        return flag;
+    }
+
+    // los que le faltan al conjunto para igualar al universal
+    public ConjuntoArreglo complemento(ConjuntoArreglo B){
+        ConjuntoArreglo complemento = new ConjuntoArreglo(cantidadElementos);
+        int x = 0;
+        for (int i = 0; i < B.getCantidadElementos(); i++) {
+            if(!this.pertenece(B.getDato(i))){
+                complemento.setDato(B.getDato(i), x);
+                x++;
+            }
+        }
+        return complemento;
+    }
 }

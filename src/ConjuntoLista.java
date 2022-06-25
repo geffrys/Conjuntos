@@ -37,13 +37,18 @@ public class ConjuntoLista {
         return counter;
     }
 
-    public boolean inConjunto(int dato){
+    public boolean pertenece(String dato){
         Nodo p = this.getCabeza();
         while (p!=null) {
-            if(p.getDato()==dato){
+            if(p.getDato().equals(dato)){
                 return true;
             }
         }
         return false;
     }
+
+    public boolean subconjuntoA(ConjuntoLista B){
+        
+    }
+
 }

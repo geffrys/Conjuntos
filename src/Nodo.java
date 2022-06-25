@@ -6,9 +6,9 @@ public class Nodo {
     private String dato;
     private Nodo next;
 
-    public void setDato(int dato) {
+    public void setDato(String dato) {
         this.dato = dato;
-    }public int getDato() {
+    }public String getDato() {
         return dato;
     }
     
