@@ -17,4 +17,8 @@ public class Nodo {
     }public Nodo getNext() {
         return next;
     }
+    public Nodo(String dato){
+        this.setDato(dato);
+        this.setNext(null);
+    }
 }
