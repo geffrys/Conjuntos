@@ -16,14 +16,17 @@ public class ConjuntoArreglo {
     }
 
     public void setDato(String dato, int posicion) {
-        if(this.esVacio()){
+
+        if (this.esVacio()) {
             this.conjunto[posicion] = dato;
-        }else{
-            if (this.pertenece(dato)==false) {
+        } else {
+            // if(universal.pertenece(dato)){
+            if (this.pertenece(dato) == false) {
                 this.conjunto[posicion] = dato;
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "El dato no ha sido ingresado pues ya esta en el conjunto");
             }
+            // }
         }
     }
 
@@ -33,14 +36,14 @@ public class ConjuntoArreglo {
 
     public boolean pertenece(String elemento) {
         try {
-            if(!this.esVacio()){
+            if (!this.esVacio()) {
                 for (int i = 0; i < this.getCantidadElementos(); i++) {
                     if (this.conjunto[i].equals(elemento)) {
                         return true;
                     }
                 }
                 return false;
-            }else{
+            } else {
                 return false;
             }
         } catch (NullPointerException e) {
@@ -174,44 +177,51 @@ public class ConjuntoArreglo {
     }
 
     private String concatenadorMostrar = "";
+
     public void setConcatenadorMostrar(String concatenadorMostrar) {
         this.concatenadorMostrar = concatenadorMostrar;
-    }public String getConcatenadorMostrar() {
+    }
+
+    public String getConcatenadorMostrar() {
         return concatenadorMostrar;
     }
-    
-    public void mostrarConjunto(){
+
+    public void mostrarConjunto() {
         for (int i = 0; i < this.getCantidadElementos(); i++) {
-            if(this.conjunto[i]!=null){
-                concatenadorMostrar+=this.conjunto[i];
+            if (this.conjunto[i] != null) {
+                concatenadorMostrar += this.conjunto[i];
             }
         }
     }
 
-    public void vaciar(){
+    public void vaciar() {
         for (int i = 0; i < this.getCantidadElementos(); i++) {
             this.conjunto[i] = null;
         }
     }
 
-    public void borrar(String dato){
+    public void borrar(String dato) {
         for (int i = 0; i < this.getCantidadElementos(); i++) {
-            if(this.conjunto[i].equals(dato)){
+            if (this.conjunto[i].equals(dato)) {
                 this.conjunto[i] = null;
             }
         }
     }
 
     private int position;
+
     public int getPosition() {
         return position;
-    }public void setPosition(int position) {
+    }
+
+    public void setPosition(int position) {
         this.position = position;
     }
-    public void posicion(String dato){
+
+    public void posicion(String dato) {
         for (int i = 0; i < this.getCantidadElementos(); i++) {
-            if(this.conjunto[i].equals(dato)){
-                this.position= i;
+            if (this.conjunto[i].equals(dato)) {
+                this.position = i;
             }
         }
     }

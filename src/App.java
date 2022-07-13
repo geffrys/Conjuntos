@@ -9,7 +9,8 @@ public class App {
         final String[] conjuntoA = { "3", "1", "5", "8", "2" };
         final String[] conjuntoB = { "9", "2", "1", "8", "5" };
 
-        String opc, opc2;
+        String opc, opc2, inputs;
+        int position;
         ConjuntoArreglo conjuntoArregloA, conjuntoArregloB, conjuntoArregloUniversal;
         ConjuntoLista conjuntoListaA = new ConjuntoLista(null), conjuntoListaB = new ConjuntoLista(null), conjuntoListaUniversal = new ConjuntoLista(null);
         do {
@@ -19,15 +20,13 @@ public class App {
                 // CASO PARA CONJUNTO EN ARREGLO
 
                 case "1":
+                conjuntoArregloA = new ConjuntoArreglo(conjuntoA.length);
+                conjuntoArregloB = new ConjuntoArreglo(conjuntoB.length);
+                conjuntoArregloUniversal = new ConjuntoArreglo(universal.length);
                     do {
                         opc2 = JOptionPane.showInputDialog(null, menuGeneral);
                         switch (opc2) {
                             case "1":
-
-                            conjuntoArregloA = new ConjuntoArreglo(conjuntoA.length);
-                            conjuntoArregloB = new ConjuntoArreglo(conjuntoB.length);
-                            conjuntoArregloUniversal = new ConjuntoArreglo(universal.length);
-
                             for (int i = 0; i < conjuntoA.length; i++) {
                                 conjuntoArregloA.setDato(conjuntoA[i], i);
                             }for (int i = 0; i < conjuntoB.length; i++) {
@@ -37,7 +36,9 @@ public class App {
                             }
                                 break;
                             case "2":
-                                
+                            inputs = JOptionPane.showInputDialog(null, "Escriba el dato a ingresar.");
+                            position = Integer.parseInt(JOptionPane.showInputDialog(null, "Escriba la posicion en la que lo desea insertar, tenga en cuenta que las posicion van desde el 0 hasta "+ conjuntoArregloA.getCantidadElementos()));
+                            conjuntoArregloA.setDato(inputs, position);    
                                 break;
                             case "3":
 
