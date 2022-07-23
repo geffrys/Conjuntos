@@ -2,7 +2,7 @@ import javax.swing.JOptionPane;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        final String menu = "Que tipo de conjuntos desea representar\n\n1. Conjunto en listas \n\n2. Conjunto en arreglo";
+        final String menu = "Que tipo de conjuntos desea representar\n\n2. Conjunto en listas \n\n1. Conjunto en arreglo";
         final String menuGeneral = "Escriba la operacion que desea realizar \n1. cargar conjuntos. \n2. insertar. \n3. eliminar. \n4. mostrar. \n5. posicion de dato. \n6. es vacio? \n7. es subconjunto? \n8. union. \n9. interseccion. \n10. complemento. \n11. diferencia. \n12. diferencia simetrica. \n13. vaciar. \n15. salir";
 
         final String[] universal = { "3", "7", "6", "9", "4", "0", "2", "1", "8", "5" };
@@ -95,11 +95,70 @@ public class App {
                             case "7":
                                 conjuntoArregloA.mostrarConjunto();
                                 conjuntoArregloB.mostrarConjunto();
-                                if (conjuntoArregloA.subconjuntoA(conjuntoArregloB)) {
-                                    JOptionPane.showMessageDialog(null,
-                                            "El conjunto A: \n" + conjuntoArregloA.getConcatenadorMostrar()
-                                                    + " \nes subconjunto de B: \n"
-                                                    + conjuntoArregloB.getConcatenadorMostrar());
+                                conjuntoArregloUniversal.mostrarConjunto();
+                                inputs = JOptionPane.showInputDialog(null,
+                                        "A. el conjunto A como subconjunto de B\nB. el conjunto B como subconjunto de A.\nC. el conjunto A como subconjunto del universal. \nD. el conjunto B como subconjunto del universal");
+                                switch (inputs) {
+                                    case "A":
+                                        if (conjuntoArregloA.subconjuntoA(conjuntoArregloB)) {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto A: \n" + conjuntoArregloA.getConcatenadorMostrar()
+                                                            + " \nes subconjunto de B: \n"
+                                                            + conjuntoArregloB.getConcatenadorMostrar());
+                                        } else {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto A: \n" + conjuntoArregloA.getConcatenadorMostrar()
+                                                            + " \nno es subconjunto de B: \n"
+                                                            + conjuntoArregloB.getConcatenadorMostrar());
+
+                                        }
+                                        break;
+                                
+                                    case "B":
+                                        if (conjuntoArregloB.subconjuntoA(conjuntoArregloA)) {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto B: \n" + conjuntoArregloB.getConcatenadorMostrar()
+                                                            + " \nes subconjunto de A: \n"
+                                                            + conjuntoArregloA.getConcatenadorMostrar());
+                                        } else {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto B: \n" + conjuntoArregloB.getConcatenadorMostrar()
+                                                            + " \nno es subconjunto de A: \n"
+                                                            + conjuntoArregloA.getConcatenadorMostrar());
+
+                                        }
+                                        break;
+                                    case "C":
+                                        if (conjuntoArregloA.subconjuntoA(conjuntoArregloUniversal)) {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto A: \n" + conjuntoArregloA.getConcatenadorMostrar()
+                                                            + " \nes subconjunto de Universal: \n"
+                                                            + conjuntoArregloUniversal.getConcatenadorMostrar());
+                                        } else {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto A: \n" + conjuntoArregloA.getConcatenadorMostrar()
+                                                            + " \nno es subconjunto de Universal: \n"
+                                                            + conjuntoArregloUniversal.getConcatenadorMostrar());
+
+                                        }
+                                        break;
+                                    case "D":
+                                        if (conjuntoArregloB.subconjuntoA(conjuntoArregloUniversal)) {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto B: \n" + conjuntoArregloB.getConcatenadorMostrar()
+                                                            + " \nes subconjunto de Universal: \n"
+                                                            + conjuntoArregloUniversal.getConcatenadorMostrar());
+                                        } else {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto B: \n" + conjuntoArregloB.getConcatenadorMostrar()
+                                                            + " \nno es subconjunto de Universal: \n"
+                                                            + conjuntoArregloUniversal.getConcatenadorMostrar());
+
+                                        }
+                                        break;
+
+                                    default:
+                                        break;
                                 }
                                 conjuntoArregloA.setConcatenadorMostrar("");
                                 conjuntoArregloB.setConcatenadorMostrar("");
@@ -259,12 +318,66 @@ public class App {
                             case "7":
                                 conjuntoListaA.mostrarConjunto();
                                 conjuntoListaB.mostrarConjunto();
-                                if (conjuntoListaA.subconjuntoA(conjuntoListaB)) {
-                                    JOptionPane.showMessageDialog(null,
-                                            "El conjunto A: \n" + conjuntoListaA.getConcatenator()
-                                                    + " \nes subconjunto de B: \n"
-                                                    + conjuntoListaB.getConcatenator());
+                                conjuntoListaUniversal.mostrarConjunto();
+                                inputs = JOptionPane.showInputDialog(null, "A. el conjunto A como subconjunto de B\nB. el conjunto B como subconjunto de A.\nC. el conjunto A como subconjunto del universal. \nD. el conjunto B como subconjunto del universal");
+                                switch (inputs) {
+                                    case "A":
+                                        if (conjuntoListaA.subconjuntoA(conjuntoListaB)) {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto A: \n" + conjuntoListaA.getConcatenator()
+                                                            + " \nes subconjunto de B: \n"
+                                                            + conjuntoListaB.getConcatenator());
+                                        }else{
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto A: \n" + conjuntoListaA.getConcatenator()
+                                                            + " \nNo es subconjunto de B: \n"
+                                                            + conjuntoListaB.getConcatenator());
+                                        }
+                                        break;
+                                    case "B":
+                                        if (conjuntoListaB.subconjuntoA(conjuntoListaA)) {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto B: \n" + conjuntoListaB.getConcatenator()
+                                                            + " \nes subconjunto de A: \n"
+                                                            + conjuntoListaA.getConcatenator());
+                                        } else {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto B: \n" + conjuntoListaB.getConcatenator()
+                                                            + " \nNo es subconjunto de A: \n"
+                                                            + conjuntoListaA.getConcatenator());
+                                        }
+                                        break;
+                                    case "C":
+                                        if (conjuntoListaA.subconjuntoA(conjuntoListaUniversal)) {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto A: \n" + conjuntoListaA.getConcatenator()
+                                                            + " \nes subconjunto del universal: \n"
+                                                            + conjuntoListaUniversal.getConcatenator());
+                                        } else {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto A: \n" + conjuntoListaA.getConcatenator()
+                                                            + " \nNo es subconjunto del universal: \n"
+                                                            + conjuntoListaUniversal.getConcatenator());
+                                        }
+                                        break;
+                                    case "D":
+                                        if (conjuntoListaB.subconjuntoA(conjuntoListaUniversal)) {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto B: \n" + conjuntoListaA.getConcatenator()
+                                                            + " \nes subconjunto del Universal: \n"
+                                                            + conjuntoListaUniversal.getConcatenator());
+                                        } else {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El conjunto B: \n" + conjuntoListaB.getConcatenator()
+                                                            + " \nNo es subconjunto del universal: \n"
+                                                            + conjuntoListaUniversal.getConcatenator());
+                                        }
+                                        break;
+                                
+                                    default:
+                                        break;
                                 }
+                                
                                 conjuntoListaA.resetTestConcatenator();
                                 conjuntoListaB.resetTestConcatenator();
                                 break;
