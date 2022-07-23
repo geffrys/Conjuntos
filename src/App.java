@@ -162,6 +162,7 @@ public class App {
                                 }
                                 conjuntoArregloA.setConcatenadorMostrar("");
                                 conjuntoArregloB.setConcatenadorMostrar("");
+                                conjuntoArregloUniversal.setConcatenadorMostrar("");
                                 break;
                             case "8":
                                 ConjuntoArreglo union = conjuntoArregloA.union(conjuntoArregloB);
@@ -285,7 +286,7 @@ public class App {
                                         + conjuntoListaB.getConcatenator());
                                 conjuntoListaA.resetTestConcatenator();
                                 conjuntoListaB.resetTestConcatenator();;
-                                conjuntoListaUniversal.resetTestConcatenator();;
+                                conjuntoListaUniversal.resetTestConcatenator();
                                 break;
                             case "5":
                                 inputs = JOptionPane.showInputDialog(null, opcionConjunto);
@@ -380,6 +381,7 @@ public class App {
                                 
                                 conjuntoListaA.resetTestConcatenator();
                                 conjuntoListaB.resetTestConcatenator();
+                                conjuntoListaUniversal.resetTestConcatenator();
                                 break;
                             case "8":
                                 ConjuntoLista union = conjuntoListaA.union(conjuntoListaB);
